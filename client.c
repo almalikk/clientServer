@@ -1,7 +1,11 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <string.h>
+
+#include <stdio.h> 
+#include <sys/socket.h> 
+#include <netinet/in.h> 
+#include <string.h> 
+#include <arpa/inet.h> 
+#include <stdlib.h> 
+#include <unistd.h>
 
 int main(){
 	int clientSocket;
@@ -12,27 +16,35 @@ int main(){
 	clientSocket = socket(PF_INET, SOCK_STREAM, 0);
 
 	serverAddr.sin_family = AF_INET;
-	serverAddr.sin_port = htons(6708);
-	serverAddr.sin_addr.s_addr = inet_addr("192.168.184.137");
+	serverAddr.sin_port = htons(5356);
+	serverAddr.sin_addr.s_addr = 
+inet_addr("192.168.184.137");
 	memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);
 	addr_size = sizeof serverAddr;
 	connect(clientSocket, (struct sockaddr *) &serverAddr, 
 addr_size);
-	printf("Enter a text : %s", message);
-	scanf("%s", message);
+	
+	while(1){
+	
+	printf("Enter a text : " , message );
+	scanf("%s",message);
+	
+	char a[] = "quit";
+	
 	send(clientSocket, message, 50, 0);
 	recv(clientSocket, message, 50, 0);
 	
-	printf("Server Reply:%s", message);
+	
+
+	if(strcasecmp(message,a)==0)
+	{ break; }
+	else;
+	
+	printf("Server Reply: %s\n", message);
+
+	
+	}
+	close(clientSocket);
 	return 0;
 }
-# clientServer
-# clientServer
-# clientServer
-# clientServer
-# clientServer
-# clientServer
-# clientServer
-# clientServer
-# clientServer
-# clientServer
+
