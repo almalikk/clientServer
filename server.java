@@ -41,10 +41,7 @@ PrintWriter(soc.getOutputStream(),true);
 		{ out.println(ip);}
 
 		else if(message.equalsIgnoreCase(hosts))
-		{ out.println(hostname);}
-
-	//	else if(message.equalsIgnoreCase(hostc))
-	//   	{ out.println(addr.getLocalHost());}
+		{ out.println(hostname);}   	
 
 		else if(message.equalsIgnoreCase(q))
 		{ break ; }
