@@ -158,7 +158,7 @@ sizeof(ttl_val));
 	{ strcpy (message , "Invalid Command");}
 
 	send(newSocket, message, 50, 0);
-  
+ 
   }
 	close(clientSocket);
 	return 0;
