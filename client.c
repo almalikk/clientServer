@@ -42,7 +42,6 @@ addr_size);
 	
 	printf("Server Reply: %s\n", message);
 
-	
 	}
 	close(clientSocket);
 	return 0;
